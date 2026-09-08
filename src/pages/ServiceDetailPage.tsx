@@ -82,11 +82,11 @@ export const ServiceDetailPage: React.FC = () => {
 
           <div className="p-6 sm:p-10 lg:p-12">
             {/* Image Banner */}
-            <div className="relative h-64 sm:h-80 md:h-96 w-full overflow-hidden rounded-2xl mb-10 shadow-md">
+            <div className="relative h-48 sm:h-60 md:h-64 w-full overflow-hidden rounded-2xl mb-8 shadow-sm">
               <img
                 src={service.image}
                 alt={service.title}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs sm:text-sm font-semibold">
