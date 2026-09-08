@@ -1,29 +1,33 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Menu, X } from 'lucide-react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 interface HeaderProps {
-  onOpenContactModal: () => void
+  onOpenContactModal?: () => void
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenContactModal }) => {
+export const Header: React.FC<HeaderProps> = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
 
-      // Active section spy
-      const sections = ['hero', 'about', 'services', 'solutions', 'contact']
-      for (const section of sections) {
-        const el = document.getElementById(section)
-        if (el) {
-          const rect = el.getBoundingClientRect()
-          if (rect.top <= 120 && rect.bottom >= 120) {
-            setActiveSection(section)
-            break
+      if (location.pathname === '/') {
+        const sections = ['hero', 'about', 'services', 'solutions', 'contact']
+        for (const section of sections) {
+          const el = document.getElementById(section)
+          if (el) {
+            const rect = el.getBoundingClientRect()
+            if (rect.top <= 120 && rect.bottom >= 120) {
+              setActiveSection(section)
+              break
+            }
           }
         }
       }
@@ -31,19 +35,26 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContactModal }) => {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [location.pathname])
 
   const navItems = [
-    { label: 'Home', href: '#hero', id: 'hero' },
-    { label: 'About Us', href: '#about', id: 'about' },
-    { label: 'Services', href: '#services', id: 'services' },
-    { label: 'Solutions', href: '#solutions', id: 'solutions' },
+    { label: 'Home', href: '/#hero', id: 'hero' },
+    { label: 'About Us', href: '/#about', id: 'about' },
+    { label: 'Services', href: '/#services', id: 'services' },
+    { label: 'Solutions', href: '/#solutions', id: 'solutions' },
   ]
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     setMobileMenuOpen(false)
-    const target = document.querySelector(href)
+
+    if (location.pathname !== '/') {
+      navigate(href)
+      return
+    }
+
+    const hash = href.replace('/', '')
+    const target = document.querySelector(hash)
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' })
     }
@@ -63,9 +74,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContactModal }) => {
       <div className="section-container">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
-          <a
-            href="#hero"
-            onClick={(e) => scrollToSection(e, '#hero')}
+          <Link
+            to="/"
             className="flex items-center gap-3 shrink-0 group focus:outline-none"
           >
             <img
@@ -73,17 +83,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContactModal }) => {
               alt="Retro Infotech"
               className="h-10 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 lg:gap-10">
             {navItems.map((item) => {
-              const isActive = activeSection === item.id
+              const isActive = activeSection === item.id && location.pathname === '/'
               return (
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={(e) => scrollToSection(e, item.href)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`relative text-[16px] lg:text-[17px] font-medium transition-colors py-1 ${
                     isActive
                       ? 'text-retro-orange font-semibold'
@@ -104,15 +114,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContactModal }) => {
 
           {/* Contact Us CTA Button */}
           <div className="hidden md:flex items-center gap-3">
-            <button
-              onClick={onOpenContactModal}
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-retro-blue via-retro-cyan to-retro-orange p-[1px] transition-transform hover:scale-105 shadow-brand"
             >
               <span className="flex items-center gap-2 rounded-full bg-retro-navy px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-transparent">
                 Contact Us
                 <ArrowRight className="w-4 h-4 text-retro-orange" />
               </span>
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -140,23 +150,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContactModal }) => {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={(e) => scrollToSection(e, item.href)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="block px-4 py-2.5 text-base font-medium rounded-lg text-retro-navy hover:bg-slate-50 hover:text-retro-cyan transition-colors"
                 >
                   {item.label}
                 </a>
               ))}
               <div className="pt-2">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false)
-                    onOpenContactModal()
-                  }}
+                <Link
+                  to="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="w-full flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-retro-blue to-retro-orange px-4 py-3 text-sm font-semibold text-white shadow-brand hover:opacity-95 transition-opacity"
                 >
                   Contact Us
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
               </div>
             </motion.nav>
           )}

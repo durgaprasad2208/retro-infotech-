@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import {
   Smartphone,
   Tv,
@@ -105,11 +106,12 @@ const solutionsData: SolutionCategory[] = [
 ]
 
 interface PaymentSolutionsProps {
-  onSelectItem: (itemTitle: string) => void
+  onSelectItem?: (itemTitle: string) => void
 }
 
 export const PaymentSolutions: React.FC<PaymentSolutionsProps> = ({ onSelectItem }) => {
   const [activeTab, setActiveTab] = useState<string>('all')
+  const navigate = useNavigate()
 
   const filteredCategories =
     activeTab === 'all'
@@ -181,7 +183,10 @@ export const PaymentSolutions: React.FC<PaymentSolutionsProps> = ({ onSelectItem
                     <motion.div
                       key={item.title}
                       whileHover={{ y: -4, scale: 1.02 }}
-                      onClick={() => onSelectItem(item.title)}
+                      onClick={() => {
+                        if (onSelectItem) onSelectItem(item.title)
+                        navigate(`/contact?service=${encodeURIComponent(`BBPS / Utility: ${item.title}`)}`)
+                      }}
                       className="cursor-pointer group flex flex-col items-center justify-center text-center p-4 rounded-xl bg-slate-50/70 border border-slate-100 hover:bg-white hover:border-retro-cyan/40 hover:shadow-md transition-all"
                     >
                       <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-white to-blue-50 text-retro-blue group-hover:from-retro-blue group-hover:to-retro-cyan group-hover:text-white transition-all shadow-sm">

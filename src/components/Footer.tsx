@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
-import { ArrowRight, Mail, Phone, MapPin, CheckCircle, MessageCircle } from 'lucide-react'
-import { PolicyType } from './PolicyModal'
+import { ArrowRight, Mail, Phone, MapPin, CheckCircle } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
 
 interface FooterProps {
-  onOpenPolicy: (type: PolicyType) => void
-  onOpenContactModal: () => void
+  onOpenPolicy?: (type: any) => void
+  onOpenContactModal?: () => void
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenContactModal }) => {
+export const Footer: React.FC<FooterProps> = () => {
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
+  const location = useLocation()
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault()
@@ -23,34 +24,29 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenContactModal
   }
 
   const quickLinks = [
-    { label: 'Home', href: '#hero' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Solutions', href: '#solutions' },
-    { label: 'Contact Us', href: '#contact' },
+    { label: 'Home', href: '/#hero' },
+    { label: 'About Us', href: '/#about' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Solutions', href: '/#solutions' },
+    { label: 'Contact Us', href: '/contact' },
   ]
 
   const serviceLinks = [
-    'POS Terminal Switch',
-    'BBPS Utility Bill Payment',
-    'Mobile & DTH Recharge',
-    'Travel & Rail Reservations',
-    'Retro Education Academy',
-    'Software & Digital Hub',
+    { label: 'POS Terminal Switch', id: 'pos' },
+    { label: 'AePS & Micro-ATM Cash Point', id: 'micro-atm' },
+    { label: 'BBPS Utility Bill Payment', id: 'bus' },
+    { label: 'Travel & Rail Reservations', id: 'train' },
+    { label: 'Retro Education Academy', id: 'education' },
+    { label: 'Software & Digital Hub', id: 'digital-tools' },
   ]
 
-  const policyLinks: { label: string; type: PolicyType }[] = [
-    { label: 'Privacy Policy', type: 'privacy' },
-    { label: 'Terms & Conditions', type: 'terms' },
-    { label: 'Refund Policy', type: 'refund' },
-    { label: 'Grievance Officer', type: 'grievance' },
-    { label: 'Regulatory Information', type: 'regulatory' },
+  const policyLinks = [
+    { label: 'Privacy Policy', path: '/policy/privacy' },
+    { label: 'Terms & Conditions', path: '/policy/terms' },
+    { label: 'Refund Policy', path: '/policy/refund' },
+    { label: 'Grievance Officer', path: '/policy/grievance' },
+    { label: 'Regulatory Information', path: '/policy/regulatory' },
   ]
-
-  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
-  }
 
   return (
     <footer className="bg-slate-900 text-slate-300 font-sans border-t border-slate-800 pt-16 pb-12">
@@ -135,13 +131,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenContactModal
             <ul className="space-y-2.5 text-sm">
               {quickLinks.map((item) => (
                 <li key={item.label}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => scrollTo(e, item.href)}
+                  <Link
+                    to={item.href}
                     className="text-slate-400 hover:text-retro-cyan transition-colors"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -154,13 +149,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenContactModal
             </h4>
             <ul className="space-y-2.5 text-sm">
               {serviceLinks.map((item) => (
-                <li key={item}>
-                  <button
-                    onClick={onOpenContactModal}
-                    className="text-slate-400 hover:text-retro-cyan transition-colors text-left"
+                <li key={item.label}>
+                  <Link
+                    to={`/service/${item.id}`}
+                    className="text-slate-400 hover:text-retro-cyan transition-colors text-left block"
                   >
-                    {item}
-                  </button>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -174,12 +169,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenContactModal
             <ul className="space-y-2.5 text-sm">
               {policyLinks.map((item) => (
                 <li key={item.label}>
-                  <button
-                    onClick={() => onOpenPolicy(item.type)}
-                    className="text-slate-400 hover:text-retro-orange transition-colors text-left"
+                  <Link
+                    to={item.path}
+                    className="text-slate-400 hover:text-retro-orange transition-colors text-left block"
                   >
                     {item.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -190,15 +185,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenContactModal
         <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} RETRO INFOTECH PVT LTD. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
-            <button onClick={() => onOpenPolicy('privacy')} className="hover:text-slate-300 transition-colors">
+            <Link to="/policy/privacy" className="hover:text-slate-300 transition-colors">
               Privacy
-            </button>
-            <button onClick={() => onOpenPolicy('terms')} className="hover:text-slate-300 transition-colors">
+            </Link>
+            <Link to="/policy/terms" className="hover:text-slate-300 transition-colors">
               Terms
-            </button>
-            <button onClick={() => onOpenPolicy('grievance')} className="hover:text-slate-300 transition-colors">
+            </Link>
+            <Link to="/policy/grievance" className="hover:text-slate-300 transition-colors">
               Grievance
-            </button>
+            </Link>
           </div>
         </div>
       </div>

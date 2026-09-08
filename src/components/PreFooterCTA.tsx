@@ -1,12 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 interface PreFooterCTAProps {
-  onOpenContactModal: () => void
+  onOpenContactModal?: () => void
 }
 
-export const PreFooterCTA: React.FC<PreFooterCTAProps> = ({ onOpenContactModal }) => {
+export const PreFooterCTA: React.FC<PreFooterCTAProps> = () => {
   return (
     <section className="py-12 bg-white relative overflow-hidden">
       <div className="section-container">
@@ -36,13 +37,13 @@ export const PreFooterCTA: React.FC<PreFooterCTAProps> = ({ onOpenContactModal }
             </div>
 
             <div className="shrink-0">
-              <button
-                onClick={onOpenContactModal}
+              <Link
+                to="/contact?service=Retail+Agent+Partnership"
                 className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-retro-orange to-amber-500 px-8 py-4 text-base font-bold text-white shadow-orange-glow hover:scale-105 transition-all"
               >
                 <span>Join Today</span>
                 <ArrowRight className="h-5 w-5" />
-              </button>
+              </Link>
             </div>
           </div>
         </motion.div>

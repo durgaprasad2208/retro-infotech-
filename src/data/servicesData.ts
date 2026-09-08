@@ -9,6 +9,7 @@ import {
   Plane,
   Building2,
   Cpu,
+  Banknote,
 } from 'lucide-react'
 
 export interface ServiceItem {
@@ -161,6 +162,23 @@ export const servicesData: ServiceItem[] = [
       'Zero booking deposit & pay-at-hotel flexibilities',
       'Dedicated helpline for check-in assistance and room upgrades',
       'Seasonal festive coupons and retailer margin buffers',
+    ],
+  },
+  {
+    id: 'micro-atm',
+    title: 'AePS & Micro-ATM Cash Point',
+    category: 'Banking & Cash Withdrawal',
+    description: 'Transform your retail counter into a mini-bank branch with Aadhaar biometric withdrawals & balance enquiry.',
+    icon: Banknote,
+    image: '/services/micro-atm.jpg',
+    badge: 'NPCI Certified',
+    ctaLabel: 'Book now',
+    ctaVariant: 'button',
+    features: [
+      'Aadhaar-enabled Biometric Cash Withdrawal (AePS) across all banks',
+      'Micro-ATM debit card cash dispense with high transaction approval rates',
+      'Instant mini-statement and real-time bank balance inquiry',
+      'Attractive per-transaction agent commissions credited instantly to wallet',
     ],
   },
   {

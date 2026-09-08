@@ -1,12 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, ShieldCheck, Clock, Zap, CheckCircle2, TrendingUp, CreditCard, Sparkles } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 interface HeroProps {
-  onOpenContactModal: () => void
+  onOpenContactModal?: () => void
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenContactModal }) => {
+export const Hero: React.FC<HeroProps> = () => {
   const trustFeatures = [
     { icon: ShieldCheck, label: 'Secure & Trusted Platform' },
     { icon: Clock, label: '24/7 Enterprise Support' },
@@ -20,13 +21,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContactModal }) => {
 
   return (
     <section id="hero" className="relative overflow-hidden bg-white pt-24 pb-16 lg:pt-36 lg:pb-24">
-      {/* Background Ambient Glow Orbs */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute top-16 -left-20 h-72 w-72 rounded-full bg-retro-cyan/15 blur-3xl lg:h-96 lg:w-96" />
-        <div className="absolute top-20 right-0 h-64 w-64 rounded-full bg-retro-orange/15 blur-3xl lg:h-80 lg:w-80" />
-        <div className="absolute bottom-0 right-1/3 h-48 w-80 rounded-full bg-blue-100/40 blur-3xl" />
-      </div>
-
+      {/* Clean Background */}
       <div className="section-container relative">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10">
           {/* Left Column: Heading, Pitch, CTAs */}
@@ -80,13 +75,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContactModal }) => {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
-              <button
-                onClick={onOpenContactModal}
+              <Link
+                to="/contact?service=Merchant+Network+Get+Started"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-retro-blue via-retro-cyan to-retro-orange px-8 py-3.5 text-base font-semibold text-white shadow-brand hover:opacity-95 hover:shadow-orange-glow transition-all transform hover:-translate-y-0.5"
               >
                 Get Started
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
 
               <button
                 onClick={scrollToServices}
@@ -122,11 +117,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContactModal }) => {
           >
             {/* Interactive Switch Hub Card Graphic */}
             <div className="relative w-full max-w-md">
-              {/* Outer decorative ring */}
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-retro-cyan via-retro-blue to-retro-orange opacity-30 blur-xl animate-pulse" />
-
               {/* Main Card */}
-              <div className="relative rounded-2xl border border-slate-200 bg-white/95 p-6 sm:p-7 shadow-2xl backdrop-blur-xl">
+              <div className="relative rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 shadow-sm">
                 {/* Header row */}
                 <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                   <div className="flex items-center gap-3">

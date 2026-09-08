@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
   CreditCard,
   GraduationCap,
@@ -19,10 +20,10 @@ import { ServiceItem, servicesData } from '../data/servicesData'
 export type { ServiceItem }
 
 interface ServicesGridProps {
-  onSelectService: (service: ServiceItem) => void
+  onSelectService?: (service: ServiceItem) => void
 }
 
-export const ServicesGrid: React.FC<ServicesGridProps> = ({ onSelectService }) => {
+export const ServicesGrid: React.FC<ServicesGridProps> = () => {
   const regularServices = servicesData.filter((s) => !s.fullWidth)
   const fullWidthService = servicesData.find((s) => s.fullWidth)
 
@@ -48,8 +49,8 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onSelectService }) =
           </p>
         </div>
 
-        {/* 8 Regular Grid Cards (2 columns on md/lg) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8">
+        {/* Services Grid (3 per row) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8">
           {regularServices.map((service, index) => {
             const Icon = service.icon
             const isButton = service.ctaVariant === 'button'
@@ -104,30 +105,30 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onSelectService }) =
                     </p>
                   </div>
 
-                  {/* Bottom CTA Row (Buttons kept without external redirection) */}
+                  {/* Bottom CTA Row */}
                   <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <button
-                      onClick={() => onSelectService(service)}
+                    <Link
+                      to={`/service/${service.id}`}
                       className="text-xs font-semibold text-retro-cyan hover:underline"
                     >
                       View Features & Specs
-                    </button>
+                    </Link>
 
                     {isButton ? (
-                      <button
-                        onClick={() => onSelectService(service)}
+                      <Link
+                        to={`/service/${service.id}`}
                         className="inline-flex items-center justify-center rounded-lg border-2 border-retro-blue px-5 py-2 text-sm font-semibold text-retro-navy hover:bg-gradient-to-r hover:from-retro-blue hover:to-retro-cyan hover:border-transparent hover:text-white transition-all duration-200 shadow-sm"
                       >
                         {service.ctaLabel}
-                      </button>
+                      </Link>
                     ) : (
-                      <button
-                        onClick={() => onSelectService(service)}
+                      <Link
+                        to={`/service/${service.id}`}
                         className="inline-flex items-center gap-1.5 text-sm font-semibold text-retro-blue hover:text-retro-orange transition-colors group/btn"
                       >
                         <span>{service.ctaLabel}</span>
                         <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                      </button>
+                      </Link>
                     )}
                   </div>
                 </div>
@@ -176,13 +177,13 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onSelectService }) =
                 )}
 
                 <div className="pt-2">
-                  <button
-                    onClick={() => onSelectService(fullWidthService)}
+                  <Link
+                    to={`/service/${fullWidthService.id}`}
                     className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-retro-orange to-amber-500 px-7 py-3.5 text-base font-bold text-white shadow-orange-glow hover:opacity-95 transition-all transform hover:scale-105"
                   >
                     <span>{fullWidthService.ctaLabel}</span>
                     <ArrowRight className="h-5 w-5" />
-                  </button>
+                  </Link>
                 </div>
               </div>
 
