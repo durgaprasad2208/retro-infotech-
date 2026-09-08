@@ -221,11 +221,15 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             <div className="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-retro-cyan shrink-0" />
-                <span>Direct: +91 9154037469</span>
+                <a href="tel:+919121404929" className="hover:text-retro-blue transition-colors">
+                  Direct: +91 9121404929
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-retro-orange shrink-0" />
-                <span>support@retroinfotech.co.in</span>
+                <a href="mailto:retroinfotech1@gmail.com" className="hover:text-retro-blue transition-colors">
+                  retroinfotech1@gmail.com
+                </a>
               </div>
             </div>
           </div>

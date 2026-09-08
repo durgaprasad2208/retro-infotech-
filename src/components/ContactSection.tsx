@@ -69,7 +69,8 @@ export const ContactSection: React.FC = () => {
                   <div>
                     <strong className="block text-retro-navy font-semibold">Corporate Office:</strong>
                     <span>
-                      Plot No 16, 3rd Floor, Rukmini Estates, Sagar Enclave, Main Road, Chinthal, Quthbullapur, Medchal–Malkajgiri District, HMT Township, Hyderabad, Telangana – 500054, India.
+                      RETRO INFOTECH PVT LTD<br />
+                      1-187 Chandragupta Colony, Lunani Nagar, Komadavole Rural, Andhra Pradesh – 534005, India.
                     </span>
                   </div>
                 </div>
@@ -77,11 +78,11 @@ export const ContactSection: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <Phone className="h-5 w-5 text-retro-cyan shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-retro-navy font-semibold">Support Helplines:</strong>
+                    <strong className="block text-retro-navy font-semibold">Support Helpline:</strong>
                     <div className="space-y-0.5">
-                      <p>+91 91540 37469</p>
-                      <p>+91 91540 37470</p>
-                      <p>+91 91540 37472</p>
+                      <a href="tel:+919121404929" className="hover:text-retro-blue transition-colors">
+                        +91 9121404929
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -90,8 +91,9 @@ export const ContactSection: React.FC = () => {
                   <Mail className="h-5 w-5 text-retro-blue shrink-0 mt-0.5" />
                   <div>
                     <strong className="block text-retro-navy font-semibold">Email Assistance:</strong>
-                    <p>support@retroinfotech.co.in</p>
-                    <p>grievance@retroinfotech.co.in</p>
+                    <a href="mailto:retroinfotech1@gmail.com" className="hover:text-retro-blue transition-colors block">
+                      retroinfotech1@gmail.com
+                    </a>
                   </div>
                 </div>
 

@@ -108,13 +108,21 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenContactModal
               <strong>Retro Infotech</strong> is India’s next-generation financial switching platform powering retail agents, merchants, and institutions with BBPS billing, recharges, travel ticketing, and digital software infrastructure.
             </p>
             <div className="pt-2 text-xs text-slate-400 space-y-1.5">
-              <p className="flex items-center gap-2">
-                <MapPin className="h-3.5 w-3.5 text-retro-orange shrink-0" />
-                <span>Hyderabad, Telangana – 500054, India</span>
+              <p className="flex items-start gap-2">
+                <MapPin className="h-3.5 w-3.5 text-retro-orange shrink-0 mt-0.5" />
+                <span>1-187 Chandragupta Colony, Lunani Nagar, Komadavole Rural, AP 534005</span>
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="h-3.5 w-3.5 text-retro-cyan shrink-0" />
-                <span>+91 91540 37469 / 70 / 72</span>
+                <a href="tel:+919121404929" className="hover:text-retro-cyan transition-colors">
+                  +91 9121404929
+                </a>
+              </p>
+              <p className="flex items-center gap-2">
+                <Mail className="h-3.5 w-3.5 text-retro-blue shrink-0" />
+                <a href="mailto:retroinfotech1@gmail.com" className="hover:text-retro-cyan transition-colors">
+                  retroinfotech1@gmail.com
+                </a>
               </p>
             </div>
           </div>
@@ -180,7 +188,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onOpenContactModal
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Retro Infotech. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} RETRO INFOTECH PVT LTD. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
             <button onClick={() => onOpenPolicy('privacy')} className="hover:text-slate-300 transition-colors">
               Privacy

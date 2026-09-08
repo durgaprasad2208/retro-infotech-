@@ -21,7 +21,7 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({ type, onClose }) => {
           body: (
             <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
               <p>
-                <strong>RETRO INFOTECH</strong> ("We", "Our", "Company") respects the privacy of its users, merchants, and retail partners. This Privacy Policy details how we collect, handle, and protect personal and transactional data across our payment switches and portal services.
+                <strong>RETRO INFOTECH PVT LTD</strong> ("We", "Our", "Company") respects the privacy of its users, merchants, and retail partners. This Privacy Policy details how we collect, handle, and protect personal and transactional data across our payment switches and portal services.
               </p>
               <h5 className="font-bold text-retro-navy text-base pt-2">1. Information Collection</h5>
               <p>
@@ -45,7 +45,7 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({ type, onClose }) => {
           body: (
             <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
               <p>
-                By accessing or using the switching infrastructure, website, or APIs provided by <strong>Retro Infotech</strong>, you agree to comply with and be bound by the following terms.
+                By accessing or using the switching infrastructure, website, or APIs provided by <strong>RETRO INFOTECH PVT LTD</strong>, you agree to comply with and be bound by the following terms.
               </p>
               <h5 className="font-bold text-retro-navy text-base pt-2">1. Permitted Use</h5>
               <p>
@@ -57,7 +57,7 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({ type, onClose }) => {
               </p>
               <h5 className="font-bold text-retro-navy text-base pt-2">3. Governing Law & Jurisdiction</h5>
               <p>
-                All disputes arising out of the use of this service shall be governed exclusively by the laws of India, subject to the jurisdiction of the competent courts located at Hyderabad, Telangana.
+                All disputes arising out of the use of this service shall be governed exclusively by the laws of India, subject to the jurisdiction of the competent courts located in Andhra Pradesh, India.
               </p>
             </div>
           ),
@@ -92,10 +92,11 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({ type, onClose }) => {
                 In accordance with the Information Technology Act 2000 and the consumer protection rules thereunder, the details of the designated Grievance Officer are published below:
               </p>
               <div className="rounded-xl bg-slate-50 p-4 border border-slate-200 space-y-2 text-retro-navy">
-                <p><strong>Designated Officer:</strong> Balu / Grievance Redressal Cell</p>
-                <p><strong>Company:</strong> Retro Infotech</p>
-                <p><strong>Corporate Address:</strong> Plot No 16, 3rd Floor, Rukmini Estates, Sagar Enclave, Main Road, Chinthal, Quthbullapur, Medchal–Malkajgiri District, Hyderabad, Telangana – 500054, India.</p>
-                <p><strong>Email:</strong> grievance@retroinfotech.co.in</p>
+                <p><strong>Designated Officer:</strong> Grievance Redressal Cell</p>
+                <p><strong>Company:</strong> RETRO INFOTECH PVT LTD</p>
+                <p><strong>Corporate Address:</strong> 1-187 Chandragupta Colony, Lunani Nagar, Komadavole Rural, Andhra Pradesh – 534005, India.</p>
+                <p><strong>Email:</strong> retroinfotech1@gmail.com</p>
+                <p><strong>Helpline:</strong> +91 9121404929</p>
                 <p><strong>Turnaround Time:</strong> Acknowledgment within 48 hours; resolution within 15 business days.</p>
               </div>
             </div>
