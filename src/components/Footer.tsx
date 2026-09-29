@@ -36,7 +36,6 @@ export const Footer: React.FC<FooterProps> = () => {
     { label: 'AePS & Micro-ATM Cash Point', id: 'micro-atm' },
     { label: 'BBPS Utility Bill Payment', id: 'bus' },
     { label: 'Travel & Rail Reservations', id: 'train' },
-    { label: 'Retro Education Academy', id: 'education' },
     { label: 'Software & Digital Hub', id: 'digital-tools' },
   ]
 

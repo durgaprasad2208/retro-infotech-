@@ -19,24 +19,103 @@ export const PolicyPage: React.FC = () => {
           body: (
             <div className="space-y-6 text-base text-slate-600 leading-relaxed">
               <p className="text-lg font-medium text-slate-800">
-                <strong>RETRO INFOTECH PVT LTD</strong> ("We", "Our", "Company") respects the privacy of its users, merchants, and retail partners. This Privacy Policy details how we collect, handle, and protect personal and transactional data across our payment switches and portal services.
+                <strong>RETRO INFOTECH PVT LTD</strong> ("we", "us", or "our") provides a merchant panel through which onboarded merchants can manage credit card bill payments, digital wallet services, fund transfers, payment links, and related financial services (the "Services"). This Privacy Policy explains what information we collect through the Retro Infotech Merchant Panel, how we use and share it, and the choices available to you.
+              </p>
+              <p>
+                By registering for or using the Services, you agree to the collection and use of information as described here.
               </p>
               <div>
-                <h2 className="text-xl font-bold text-retro-navy mb-2">1. Information Collection</h2>
+                <h2 className="text-xl font-bold text-retro-navy mb-2">1. Introduction</h2>
                 <p>
-                  We collect information provided during merchant KYC, terminal onboarding, customer utility bill inquiries, and payment checkout. This may include business names, contact details, identification documents, and device metadata required for fraud prevention.
+                  This Privacy Policy applies to all users of the Retro Infotech Merchant Panel, including onboarded merchants and their authorized personnel.
                 </p>
               </div>
               <div>
-                <h2 className="text-xl font-bold text-retro-navy mb-2">2. Data Security & Encryption</h2>
+                <h2 className="text-xl font-bold text-retro-navy mb-2">2. Information We Collect</h2>
+                <p className="mb-3">We collect the following categories of information:</p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Identity &amp; KYC information:</strong> name, gender, email address, mobile number, photograph, PAN, Aadhaar, and any documents submitted during merchant onboarding and verification.</li>
+                  <li><strong>Business information:</strong> shop/business name, merchant type, merchant code, and registered business address.</li>
+                  <li><strong>Financial information:</strong> bank account number, IFSC code, cancelled cheque images, wallet balance, and transaction history.</li>
+                  <li><strong>Beneficiary information:</strong> details of bank accounts you add as beneficiaries for disbursements, including account holder name, account number, and IFSC code.</li>
+                  <li><strong>Location information:</strong> approximate device location captured at login, used for account security and fraud prevention.</li>
+                  <li><strong>Device &amp; usage information:</strong> IP address, browser type, device identifiers, log data, and session activity within the Merchant Panel.</li>
+                  <li><strong>Support &amp; communication data:</strong> messages, attachments, and other information you provide through support tickets, live chat, or when contacting us directly.</li>
+                </ul>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-retro-navy mb-2">3. How We Use Your Information</h2>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>To verify your identity and complete merchant onboarding (KYC/AML compliance).</li>
+                  <li>To create and maintain your merchant account, wallet, and transaction history.</li>
+                  <li>To process bill payments, fund loads, disbursements, and payment link transactions you initiate.</li>
+                  <li>To detect, prevent, and investigate fraud, unauthorized access, and security incidents.</li>
+                  <li>To provide customer support, respond to your queries, and resolve tickets or chats you raise.</li>
+                  <li>To send you service-related communications, including transaction confirmations and account alerts.</li>
+                  <li>To comply with applicable legal, regulatory, and reporting obligations.</li>
+                  <li>To improve and maintain the reliability, security, and performance of the Merchant Panel.</li>
+                </ul>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-retro-navy mb-2">4. Sharing of Information</h2>
+                <p className="mb-3">We do not sell your personal information. We share information only where necessary, including with:</p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Payment gateway and payment processing partners, to authorize and settle transactions you initiate.</li>
+                  <li>Banking partners and payment networks, to complete disbursements and fund transfers to your beneficiaries.</li>
+                  <li>Identity verification and KYC service providers, to validate the documents you submit.</li>
+                  <li>Card networks and other billers, to process the credit card bill payments you make through the platform.</li>
+                  <li>Regulators, law enforcement, or courts, where required by applicable law or a valid legal process.</li>
+                  <li>Service providers who support our infrastructure (e.g. hosting, communications), under confidentiality obligations.</li>
+                </ul>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-retro-navy mb-2">5. Data Security</h2>
                 <p>
-                  All data transmission between the client terminal and the Retro Infotech switch is protected using TLS 1.3 encryption and stored in compliant, secure cloud clusters in accordance with RBI cyber security guidelines.
+                  We use administrative, technical, and physical safeguards designed to protect your information, including encrypted transmission, access controls, MPIN-based authentication, and session monitoring. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.
                 </p>
               </div>
               <div>
-                <h2 className="text-xl font-bold text-retro-navy mb-2">3. Cookies & Analytical Tools</h2>
+                <h2 className="text-xl font-bold text-retro-navy mb-2">6. Data Retention</h2>
                 <p>
-                  We employ session cookies to maintain secure authenticated sessions and monitor transaction latency. No sensitive financial information is stored inside client-side cookies.
+                  We retain your information for as long as your merchant account is active and for a reasonable period thereafter to comply with legal, regulatory, accounting, and dispute-resolution requirements. KYC records in particular may be retained for the period mandated by applicable regulations.
+                </p>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-retro-navy mb-2">7. Your Rights &amp; Choices</h2>
+                <p className="mb-3">Subject to applicable law, you may:</p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Access and review the personal and business information associated with your merchant account.</li>
+                  <li>Request correction of inaccurate or outdated information via your Account Settings or our support team.</li>
+                  <li>Request deletion of your account, subject to our legal and regulatory retention obligations.</li>
+                  <li>Withdraw consent for optional communications at any time.</li>
+                </ul>
+                <p className="mt-3">To exercise any of these rights, contact us using the details at the bottom of this page.</p>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-retro-navy mb-2">8. Cookies &amp; Similar Technologies</h2>
+                <p>
+                  We use cookies and similar technologies to keep you signed in, remember your preferences (such as language), and understand how the Merchant Panel is used, so we can improve it. You can control cookies through your browser settings, though disabling them may affect certain features.
+                </p>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-retro-navy mb-2">9. Children's Privacy</h2>
+                <p>
+                  The Services are intended for use by merchants and their authorized personnel who are at least 18 years old. We do not knowingly collect information from children.
+                </p>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-retro-navy mb-2">10. Changes to This Policy</h2>
+                <p>
+                  We may update this Privacy Policy from time to time. We will revise the "Last updated" date above when we do, and material changes will be communicated through the Merchant Panel or another appropriate channel.
+                </p>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-retro-navy mb-2">11. Contact Us</h2>
+                <p>
+                  If you have questions about this Privacy Policy or how we handle your information, contact us at{' '}
+                  <a href="mailto:retroinfotech1@gmail.com" className="text-retro-blue hover:underline">retroinfotech1@gmail.com</a>{' '}
+                  or call{' '}
+                  <a href="tel:+919121404929" className="text-retro-blue hover:underline">+91 9121404929</a>.
                 </p>
               </div>
             </div>
